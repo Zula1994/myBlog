@@ -1,0 +1,17 @@
+{
+  "name": "zula_blog",
+  "version": "0.0.1",
+  "author": "Zula",
+  "repository": "https://github.com/Zula1994/myBlog.git",
+  "scripts": {
+    "start": "node --harmony app.js"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "koa": "^2.0.1",
+    "koa-logger": "^2.0.1",
+    "koa-onerror": "^3.1.0",
+    "koa-route": "^3.2.0",
+    "koa-router": "^5.4.0"
+  }
+}

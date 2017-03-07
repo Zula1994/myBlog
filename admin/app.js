@@ -1,0 +1,11 @@
+const Koa = require('koa');
+var router = require('koa-router')();
+const logger = require('koa-logger');
+var onerror = require('koa-onerror');
+var app = new Koa();
+app.use(logger());
+var article = require('./routes/article');
+router.use('/article',article.routes());
+app.use(router.routes());
+onerror(app);
+app.listen(3000);

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<script src="../javascripts/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<form id="form">
+	<input name="name" value="1">
+	<input name="password" value="1">
+	<input type="button" id="sub" value="提交">
+</form>
+<script>
+	$("#sub").click(function(){
+		var x = $("#form").serializeArray();
+		let obj = {};
+		$.each(x, function(i,ele){
+			obj[ele.name] = ele.value;
+		})
+		$.ajax({
+			type:'POST',
+			dataType:'json',
+			url:'../users/add',
+			data:obj,
+			success:function(data){
+				console.info(data)
+			}
+
+		})
+
+	})
+
+</script>
+</body>
+</html>

@@ -1,12 +1,25 @@
-var Users = require('../modal/users');
+var Users = require('../modal/test');
 var users = {};
 module.exports = users;
-users.add_post = function* (){
-	this.body = this.request.body
-	// var str = this.request.body.str;
-	// var obj = JSON.parse(str);
-	// obj.password = MD5Tool.MD5(obj.password);
-	// yield Admin.create(obj);
-	// yield this.body ='111'
+users.add_post = function*(next) {
+	var body = this.request.body;
+	var result = yield Users.create(body);
+	this.body = {
+		"head": {
+			"code": "0000",
+			"msg": "添加成功"
+		}
+	}
 
 };
+users.list_post = function *() {
+	Users.findAll()
+
+}
+users.delete_post = function *() {
+}
+users.updated_post = function *() {
+
+}
+
+
